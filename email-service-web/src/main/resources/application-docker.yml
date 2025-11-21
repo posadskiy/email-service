@@ -2,8 +2,6 @@
 micronaut:
   security:
     intercept-url-map:
-      - pattern: /v3/api-docs/**
-        access: isAnonymous()
       - pattern: /health
         access: isAnonymous()
   endpoints:
@@ -18,10 +16,11 @@ micronaut:
 tracing:
   jaeger:
     sampler:
-      probability: ${JAEGER_SAMPLER_PROBABILITY:0.01}
+      probability: ${JAEGER_SAMPLER_PROBABILITY:0.1}
 #end::jaeger[]
 
 #tag::email[]
 email:
   debug: ${EMAIL_DEBUG:false}
 #end::email[]
+
